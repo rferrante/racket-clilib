@@ -10,7 +10,7 @@ It does a few simple things that are meant to help out with small cli tools.
 - Interactive CLI support, so you can have lots of different commands in the same program.
 
 
-#Simple Logger
+##Simple Logger
 Use the get-logger function to set up a simple log file. The log file will replace an existing one of the same name.
 
 Log with the function by calling it and providing a string, a newline will be appended by default; suppying a 'continue for the optional newline-mode argument will suppress the newline. The function will log to the console as well as to the file, stripping out any ansi color commands from the file but leaving them for the console. That way, you can have colored console output and still have a clean text-only logfile.
@@ -22,7 +22,7 @@ Example:
 (logr (format "Started at ~a" now))
 ```
 
-#Console Color and Control Commands
+##Console Color and Control Commands
 The ~a function is used as a template for new functions like ~a/red. The most generic version is called ~a/decorate and will take a color argument as well as optional background color, bolding, italicizing, and underlining:
 
 ```
@@ -61,6 +61,7 @@ Console cursor control is provided by three functions:
 (screen-clear)
 ```
 
+##Interactive Command-Line
 Finally, there is a general facility for looping to handle an interactive command line. To use it, you supply a function that handles the commands you want. Here is an example:
 
 ```
