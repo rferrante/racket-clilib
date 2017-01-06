@@ -40,7 +40,7 @@
 (define (~a/color-iu color s)
   (~a/decorate color s #:italic #t #:under #t))
 (define (~a/color-bi color s)
-  (~a/decorate color s #:bold #t #:italic #t))
+   ~a/decorate color s #:bold #t #:italic #t))
 (define (~a/color-biu color s)
   (~a/decorate color s #:bold #t #:italic #t #:under #t))
 
@@ -109,7 +109,7 @@
     [(or "q" "x" "e" "quit" "exit") #t]
     [_ #f]))
 
-; you must define a fn to pass to cli-run, here is an example:
+; you must define a fn to pass to cli-run-interactive, here is an example:
 ;
 ;;(define (act tokens)
 ;;  (and (not (cli-exit-interactive tokens))
