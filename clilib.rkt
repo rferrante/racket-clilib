@@ -40,7 +40,7 @@
 (define (~a/color-iu color s)
   (~a/decorate color s #:italic #t #:under #t))
 (define (~a/color-bi color s)
-   ~a/decorate color s #:bold #t #:italic #t))
+  (~a/decorate color s #:bold #t #:italic #t))
 (define (~a/color-biu color s)
   (~a/decorate color s #:bold #t #:italic #t #:under #t))
 
@@ -61,6 +61,9 @@
 
 (define (cprintf color fmt . args)
   (apply printf (~a/color color fmt) args))
+
+(define (cformat color fmt . args)
+  (~a/color color (apply format fmt args)))
 
 ; obsolete legacy - a simpler interface for non-bold color foreground only
 (define (~a/clr clr s)
@@ -114,7 +117,7 @@
 ;;(define (act tokens)
 ;;  (and (not (cli-exit-interactive tokens))
 ;;    (match tokens
-;;      [(or ("Done" ...) ("Finish" ...)) #t] ; other exit codes if desired
+;;      [(or ("Done" ...) ("Finish" ...)) #f] ; other exit codes if desired
 ;;      ;; put your various commands here, must evaluate to #t or else youll exit
 ;;      ;; example below, entering 'list acting' will call (list-acting on the remainder of the line
 ;;      [(list (regexp #rx"lis.*") (regexp #rx"act.*") a) (list-acting a)]
