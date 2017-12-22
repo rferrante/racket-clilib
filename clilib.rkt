@@ -102,6 +102,7 @@
 (define (cli-run-interactive act [leader ">>"])
   (*prompt* leader)
   (printf (*prompt*))
+  (flush-output) ; for git bash cli
   (let ([tokens (string-split (string-downcase (read-line)))])
     (when (act tokens) (cli-run-interactive act (*prompt*)))))
 
